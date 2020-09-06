@@ -1,0 +1,10 @@
+C:\Users\daniel\source\repos\DataAccessApplication\DataAccessApplication\bin\Debug\DataAccessApplication.exe.config
+C:\Users\daniel\source\repos\DataAccessApplication\DataAccessApplication\bin\Debug\DataAccessApplication.exe
+C:\Users\daniel\source\repos\DataAccessApplication\DataAccessApplication\bin\Debug\DataAccessApplication.pdb
+C:\Users\daniel\source\repos\DataAccessApplication\DataAccessApplication\obj\Debug\DataAccessApplication.csprojAssemblyReference.cache
+C:\Users\daniel\source\repos\DataAccessApplication\DataAccessApplication\obj\Debug\DataAccessApplication.Form1.resources
+C:\Users\daniel\source\repos\DataAccessApplication\DataAccessApplication\obj\Debug\DataAccessApplication.Properties.Resources.resources
+C:\Users\daniel\source\repos\DataAccessApplication\DataAccessApplication\obj\Debug\DataAccessApplication.csproj.GenerateResource.cache
+C:\Users\daniel\source\repos\DataAccessApplication\DataAccessApplication\obj\Debug\DataAccessApplication.csproj.CoreCompileInputs.cache
+C:\Users\daniel\source\repos\DataAccessApplication\DataAccessApplication\obj\Debug\DataAccessApplication.exe
+C:\Users\daniel\source\repos\DataAccessApplication\DataAccessApplication\obj\Debug\DataAccessApplication.pdb
