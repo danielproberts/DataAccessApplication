@@ -20,31 +20,35 @@ namespace DataAccessApplication
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            try
-            {
-                SqlConnection connection = new SqlConnection();
+            //try
+            //{
 
-                var datasource = @"DANIELROBERFA92\SQLEXPRESS";//your server
-                var database = "Northwind"; //your database name
-                var username = "droberts";
-                var password = "northwind";
+            SqlConnection connection = new SqlConnection();
 
-                //your connection string 
-                string connString = @"Data Source=" + datasource + ";Initial Catalog="
-                    + database + ";Persist Security Info=True;User ID=" + username + ";Password=" + password;
+            var datasource = @"DANIELROBERFA92\SQLEXPRESS";//your server
+            var database = "Northwind"; //your database name
+            var username = "droberts";
+            var password = "northwind";
 
-                connection.ConnectionString = connString;
-                connection.Open();
+            //your connection string 
+            string connString = @"Data Source=" + datasource + ";Initial Catalog="
+                + database + ";Persist Security Info=True;User ID=" + username + ";Password=" + password;
 
-                lblStatusBar.Text = "Connection Successful";
-                lblStatus.Text = "Connected to " + database + " database.";
-
-                connection.Close();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Error, " +ex);
-            }
+            DbAccessLayer activeConn = new DbAccessLayer(connString);
+            /*
+            connection.ConnectionString = connString;
+            connection.Open();
+            */
+            lblStatusBar.Text = "Connection Successful";
+            lblStatus.Text = "Connected to " + database + " database.";
+            /*
+            connection.Close();
+        }
+        catch(Exception ex)
+        {
+            MessageBox.Show("Error, " +ex);
+        }
+            */
         }
 
         private void btnViewDatabase_Click(object sender, EventArgs e)
@@ -60,6 +64,8 @@ namespace DataAccessApplication
             string connString = @"Data Source=" + datasource + ";Initial Catalog="
                 + database + ";Persist Security Info=True;User ID=" + username + ";Password=" + password;
 
+            DbAccessLayer dbSession = new DbAccessLayer(connString);
+            //Constructor Start
             connection.ConnectionString = connString;
             connection.Open();
 
