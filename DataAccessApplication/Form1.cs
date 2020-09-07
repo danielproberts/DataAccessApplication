@@ -13,6 +13,7 @@ namespace DataAccessApplication
 {
     public partial class Form1 : Form
     {
+        private DbAccessLayer _dbSession;
         public Form1()
         {
             InitializeComponent();
@@ -34,13 +35,15 @@ namespace DataAccessApplication
             string connString = @"Data Source=" + datasource + ";Initial Catalog="
                 + database + ";Persist Security Info=True;User ID=" + username + ";Password=" + password;
 
-            DbAccessLayer activeConn = new DbAccessLayer(connString);
+            _dbSession = new DbAccessLayer(connString);
             /*
             connection.ConnectionString = connString;
             connection.Open();
             */
+            //dbSession.activeConn.Open();
             lblStatusBar.Text = "Connection Successful";
             lblStatus.Text = "Connected to " + database + " database.";
+            _dbSession.activeConn.Close();
             /*
             connection.Close();
         }
@@ -64,14 +67,16 @@ namespace DataAccessApplication
             string connString = @"Data Source=" + datasource + ";Initial Catalog="
                 + database + ";Persist Security Info=True;User ID=" + username + ";Password=" + password;
 
-            DbAccessLayer dbSession = new DbAccessLayer(connString);
+            //DbAccessLayer dbSession = new DbAccessLayer(connString);
             //Constructor Start
-            connection.ConnectionString = connString;
-            connection.Open();
+            //connection.ConnectionString = connString;
+            //connection.Open();
+            //dbSession.activeConn.Open();
+
 
             SqlCommand command = new SqlCommand();
 
-            command.Connection = connection;
+            command.Connection = _dbSession.activeConn;
             command.CommandText = "SELECT * FROM customers";
 
             SqlDataAdapter da = new SqlDataAdapter(command);
@@ -79,7 +84,7 @@ namespace DataAccessApplication
             da.Fill(dt);
 
             dataGridView1.DataSource = dt;
-            connection.Close();
+            _dbSession.activeConn.Close();
         }
 
         private void btnCountRecords_Click(object sender, EventArgs e)
@@ -96,16 +101,13 @@ namespace DataAccessApplication
                 + database + ";Persist Security Info=True;User ID=" + username + ";Password=" + password;
 
             connection.ConnectionString = connString;
-            connection.Open();
 
-            SqlCommand command = new SqlCommand();
 
-            command.Connection = connection;
-            command.CommandText = "SELECT COUNT(*) FROM customers";
-
-            int count = (int)command.ExecuteScalar();
-            lblCount.Text = count.ToString();
+            lblCount.Text = _dbSession.CountRecords(_dbSession.activeConn).ToString();
             connection.Close();
         }
+
+        public event System.Windows.Forms.FormClosingEventHandler FormClosing;
+
     }
 }

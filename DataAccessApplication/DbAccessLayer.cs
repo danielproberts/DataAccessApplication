@@ -5,11 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace DataAccessApplication
 {
     class DbAccessLayer
     {
+        public SqlConnection activeConn;
         public DbAccessLayer(string connString)
         {
             try
@@ -19,7 +21,7 @@ namespace DataAccessApplication
                 connection.ConnectionString = connString;
                 connection.Open();
 
-                //lblStatusBar.Text = "Connection Successful";
+                //mainForm.lblStatusBar.Text = "Connection Successful";
                 //lblStatus.Text = "Connected to " + database + " database.";
                 this.activeConn = connection;
             }
@@ -28,7 +30,20 @@ namespace DataAccessApplication
                 MessageBox.Show("Error, " + ex);
             }
         }
-        SqlConnection activeConn;
+    
+        public int CountRecords(SqlConnection connection)
+        {
+            if (connection.State == ConnectionState.Closed)
+            {
+                connection.Open();
+            }
+            SqlCommand command = new SqlCommand();
+            command.Connection = connection;
+            command.CommandText = "SELECT COUNT(*) FROM customers";
+
+            int count = (int)command.ExecuteScalar();
+            return count;
+        }
     }
 }
 
