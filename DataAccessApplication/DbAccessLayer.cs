@@ -25,26 +25,22 @@ namespace DataAccessApplication
                 MessageBox.Show("Error, " + ex);
             }
         }
-    
-        public int CountRecords(SqlConnection connection)
+        public int CountRecords(BusinessLayer busProc)
         {
-            if (connection.State == ConnectionState.Closed)
+            if (busProc.dbSession.activeConn.State == ConnectionState.Closed)
             {
-                connection.Open();
+                busProc.dbSession.activeConn.Open();
             }
             SqlCommand command = new SqlCommand();
-            command.Connection = connection;
+            command.Connection = busProc.dbSession.activeConn;
             command.CommandText = "SELECT COUNT(*) FROM customers";
-
             int count = (int)command.ExecuteScalar();
-            connection.Close();
+            busProc.dbSession.activeConn.Close();
             return count;
         }
-
         public DataTable getCustomerNames(BusinessLayer busProc)
         {
             SqlCommand command = new SqlCommand();
-
             command.Connection = busProc.dbSession.activeConn;
             command.Connection.Open();
             command.CommandText = "SELECT CompanyName FROM customers";
@@ -52,7 +48,6 @@ namespace DataAccessApplication
             DataTable dt = new DataTable();
             da.Fill(dt);
             command.Connection.Close();
-
             return dt;
         }
     }

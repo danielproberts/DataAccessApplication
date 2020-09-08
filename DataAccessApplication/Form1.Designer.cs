@@ -45,7 +45,7 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1572, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(868, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -54,9 +54,9 @@
             this.lblStatusBar.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.lblStatusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblStatus});
-            this.lblStatusBar.Location = new System.Drawing.Point(0, 931);
+            this.lblStatusBar.Location = new System.Drawing.Point(0, 756);
             this.lblStatusBar.Name = "lblStatusBar";
-            this.lblStatusBar.Size = new System.Drawing.Size(1572, 22);
+            this.lblStatusBar.Size = new System.Drawing.Size(868, 22);
             this.lblStatusBar.TabIndex = 4;
             this.lblStatusBar.Text = "statusStrip1";
             // 
@@ -69,17 +69,17 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(106, 367);
+            this.dataGridView1.Location = new System.Drawing.Point(106, 203);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 82;
             this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(642, 324);
+            this.dataGridView1.Size = new System.Drawing.Size(642, 346);
             this.dataGridView1.TabIndex = 5;
             // 
             // btnViewDatabase
             // 
-            this.btnViewDatabase.Location = new System.Drawing.Point(106, 721);
+            this.btnViewDatabase.Location = new System.Drawing.Point(106, 615);
             this.btnViewDatabase.Name = "btnViewDatabase";
             this.btnViewDatabase.Size = new System.Drawing.Size(642, 100);
             this.btnViewDatabase.TabIndex = 6;
@@ -89,7 +89,7 @@
             // 
             // btnCountRecords
             // 
-            this.btnCountRecords.Location = new System.Drawing.Point(941, 467);
+            this.btnCountRecords.Location = new System.Drawing.Point(430, 83);
             this.btnCountRecords.Name = "btnCountRecords";
             this.btnCountRecords.Size = new System.Drawing.Size(318, 84);
             this.btnCountRecords.TabIndex = 7;
@@ -99,7 +99,7 @@
             // 
             // lblCount
             // 
-            this.lblCount.Location = new System.Drawing.Point(936, 367);
+            this.lblCount.Location = new System.Drawing.Point(101, 83);
             this.lblCount.Name = "lblCount";
             this.lblCount.Size = new System.Drawing.Size(315, 48);
             this.lblCount.TabIndex = 8;
@@ -110,7 +110,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1572, 953);
+            this.ClientSize = new System.Drawing.Size(868, 778);
             this.Controls.Add(this.lblCount);
             this.Controls.Add(this.btnCountRecords);
             this.Controls.Add(this.lblStatusBar);

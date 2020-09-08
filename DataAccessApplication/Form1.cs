@@ -25,7 +25,6 @@ namespace DataAccessApplication
             {
                 busProc = new BusinessLayer();
                 lblStatus.Text = "Connection Successful";
-                busProc.dbSession.activeConn.Close();
             }
             catch(Exception ex)
             {
@@ -35,41 +34,12 @@ namespace DataAccessApplication
 
         private void btnViewDatabase_Click(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand();
-
-            command.Connection = busProc.dbSession.activeConn;
-            command.CommandText = "SELECT CompanyName FROM customers";
-
-            SqlDataAdapter da = new SqlDataAdapter(command);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
-
-            //dataGridView1.DataSource = busProc.dbSession.getCustomerNames(busProc);
-            //busProc.dbSession.activeConn.Close();
+            dataGridView1.DataSource = busProc.getCustomerNames(busProc);
         }
 
         private void btnCountRecords_Click(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection();
-
-            var datasource = @"DANIELROBERFA92\SQLEXPRESS";//your server
-            var database = "Northwind"; //your database name
-            var username = "droberts";
-            var password = "northwind";
-
-            //your connection string 
-            string connString = @"Data Source=" + datasource + ";Initial Catalog="
-                + database + ";Persist Security Info=True;User ID=" + username + ";Password=" + password;
-
-            connection.ConnectionString = connString;
-
-
-            lblCount.Text = "Number of Records: " + busProc.dbSession.CountRecords(busProc.dbSession.activeConn).ToString();
-            connection.Close();
+            lblCount.Text = "Number of Records: " + busProc.CountRecords(busProc).ToString();
         }
-
-        public event System.Windows.Forms.FormClosingEventHandler FormClosing;
-
     }
 }
