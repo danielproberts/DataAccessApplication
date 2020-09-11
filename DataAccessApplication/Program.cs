@@ -16,8 +16,9 @@ namespace DataAccessApplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            LoginForm login = new LoginForm();
             Form1 mainForm = new Form1();
-            Application.Run(mainForm);
+            Application.Run(login);
         }
     }
 }

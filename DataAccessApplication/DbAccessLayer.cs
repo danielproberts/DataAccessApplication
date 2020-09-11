@@ -14,15 +14,16 @@ namespace DataAccessApplication
         public SqlConnection activeConn;
         public DbAccessLayer(string connString)
         {
+            SqlConnection connection = new SqlConnection(connString);
             try
             {
-                SqlConnection connection = new SqlConnection(connString);
                 connection.Open();
                 this.activeConn = connection;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error, " + ex);
+                MessageBox.Show("Invalid Username or Password");
+                Console.WriteLine("Error, " + ex);
             }
         }
         public int CountRecords(BusinessLayer busProc)
