@@ -13,6 +13,7 @@ namespace DataAccessApplication
 {
     public partial class LoginForm : Form
     {
+        public static BusinessLayer busProc;
         public LoginForm()
         {
             InitializeComponent();
@@ -23,21 +24,31 @@ namespace DataAccessApplication
         private void btnLogin_Click(object sender, EventArgs e)
         {
             {
-                string datasource = @"DANIELROBERFA92\SQLEXPRESS";//your server
-                string database = "northwind";
+                string datasource = boxServerList.Text;
+                string database = boxDatabaseList.Text;
                 string username = txtUserName.Text;
                 string password = txtPassword.Text;
-
-                try
+                LoginForm.busProc = new BusinessLayer(datasource, database, username, password);
+                Program.connString = busProc.generateConnString(datasource, database, username, password);
+                //Program.connString = LoginForm.busProc.dbSession.activeConn.ConnectionString;
+                //LoginForm.busProc.dbSession.activeConn.ConnectionString = LoginForm.busProc.dbSession.activeConn.ConnectionString;
+                if (LoginForm.busProc.isLoggedIn == true)
                 {
-                    BusinessLayer busProc = new BusinessLayer(datasource, database, username, password);
+                    this.Hide();
+                    Form1 mainForm = new Form1();
+                    mainForm.MdiParent = this.MdiParent;
+                    mainForm.Show();
                 }
-                catch (SqlException ex)
+                else
                 {
-                    //strLoginStatus.Text = "Bad Username or Password";
-                    Console.WriteLine("Error " + ex);
+                    Console.WriteLine("Unable to login.");
                 }
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

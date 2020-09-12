@@ -36,12 +36,12 @@ namespace DataAccessApplication
 
         private void btnViewDatabase_Click(object sender, EventArgs e)
         {
-            //dataGridView1.DataSource = busProc.getCustomerNames(busProc);
+            dataGridView1.DataSource = LoginForm.busProc.getCustomerNames(LoginForm.busProc);
         }
 
         private void btnCountRecords_Click(object sender, EventArgs e)
         {
-            //lblCount.Text = "Number of Records: " + busProc.CountRecords(busProc).ToString();
+            lblCount.Text = "Number of Records: " + LoginForm.busProc.CountRecords(LoginForm.busProc).ToString();
         }
     }
 }

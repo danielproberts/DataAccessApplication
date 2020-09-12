@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -8,6 +9,7 @@ namespace DataAccessApplication
 {
     static class Program
     {
+        public static string connString;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,9 +18,8 @@ namespace DataAccessApplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            LoginForm login = new LoginForm();
-            Form1 mainForm = new Form1();
-            Application.Run(login);
+            AppContainer appWindow = new AppContainer();
+            Application.Run(appWindow);
         }
     }
 }

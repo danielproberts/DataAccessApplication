@@ -45,7 +45,7 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(868, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1126, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -54,9 +54,9 @@
             this.lblStatusBar.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.lblStatusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblStatus});
-            this.lblStatusBar.Location = new System.Drawing.Point(0, 756);
+            this.lblStatusBar.Location = new System.Drawing.Point(0, 848);
             this.lblStatusBar.Name = "lblStatusBar";
-            this.lblStatusBar.Size = new System.Drawing.Size(868, 22);
+            this.lblStatusBar.Size = new System.Drawing.Size(1126, 22);
             this.lblStatusBar.TabIndex = 4;
             this.lblStatusBar.Text = "statusStrip1";
             // 
@@ -110,7 +110,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(868, 778);
+            this.ClientSize = new System.Drawing.Size(1126, 870);
             this.Controls.Add(this.lblCount);
             this.Controls.Add(this.btnCountRecords);
             this.Controls.Add(this.lblStatusBar);

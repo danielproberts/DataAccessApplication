@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnLogin = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.lblUserName = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.boxServerList = new System.Windows.Forms.ComboBox();
@@ -50,14 +50,15 @@
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // btnExit
+            // btnCancel
             // 
-            this.btnExit.Location = new System.Drawing.Point(354, 540);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(256, 100);
-            this.btnExit.TabIndex = 1;
-            this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnCancel.Location = new System.Drawing.Point(354, 540);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(256, 100);
+            this.btnCancel.TabIndex = 1;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // lblUserName
             // 
@@ -85,7 +86,7 @@
             this.boxServerList.Location = new System.Drawing.Point(354, 270);
             this.boxServerList.Name = "boxServerList";
             this.boxServerList.Size = new System.Drawing.Size(256, 33);
-            this.boxServerList.TabIndex = 4;
+            this.boxServerList.TabIndex = 7;
             // 
             // txtUserName
             // 
@@ -129,7 +130,7 @@
             this.boxDatabaseList.Location = new System.Drawing.Point(354, 352);
             this.boxDatabaseList.Name = "boxDatabaseList";
             this.boxDatabaseList.Size = new System.Drawing.Size(256, 33);
-            this.boxDatabaseList.TabIndex = 9;
+            this.boxDatabaseList.TabIndex = 8;
             // 
             // LoginForm
             // 
@@ -144,10 +145,10 @@
             this.Controls.Add(this.boxServerList);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUserName);
-            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLogin);
             this.Name = "LoginForm";
-            this.Text = "LoginForm";
+            this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,7 +157,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.ComboBox boxServerList;

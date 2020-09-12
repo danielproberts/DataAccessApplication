@@ -9,7 +9,7 @@ using System.Data;
 
 namespace DataAccessApplication
 {
-    class DbAccessLayer
+    public class DbAccessLayer
     {
         public SqlConnection activeConn;
         public DbAccessLayer(string connString)
@@ -28,27 +28,47 @@ namespace DataAccessApplication
         }
         public int CountRecords(BusinessLayer busProc)
         {
-            if (busProc.dbSession.activeConn.State == ConnectionState.Closed)
+            /*
+            if (LoginForm.busProc.dbSession.activeConn.State == ConnectionState.Closed)
             {
-                busProc.dbSession.activeConn.Open();
+                LoginForm.busProc.dbSession.activeConn.Open();
             }
+            */
             SqlCommand command = new SqlCommand();
-            command.Connection = busProc.dbSession.activeConn;
+            SqlConnection connection = new SqlConnection(Program.connString);
+            command.Connection = connection;
+            command.Connection.Open();
             command.CommandText = "SELECT COUNT(*) FROM customers";
             int count = (int)command.ExecuteScalar();
-            busProc.dbSession.activeConn.Close();
+            command.Connection.Close();
+            //busProc.dbSession.activeConn.Close();
             return count;
         }
+        //{
+        /*
+        if (busProc.dbSession.activeConn.State == ConnectionState.Closed)
+        {
+            busProc.dbSession.activeConn.Open();
+        }
+        SqlCommand command = new SqlCommand();
+        command.Connection.ConnectionString = LoginForm.busProc.dbSession.activeConn.ConnectionString;
+        //command.Connection.Open();
+        command.CommandText = "SELECT COUNT(*) FROM customers";
+        int count = (int)command.ExecuteScalar();
+        //command.Connection.Close();
+        return count;
+        */
+        //}
         public DataTable getCustomerNames(BusinessLayer busProc)
         {
             SqlCommand command = new SqlCommand();
-            command.Connection = busProc.dbSession.activeConn;
-            command.Connection.Open();
+            SqlConnection connection = new SqlConnection(Program.connString);
+            command.Connection = connection;
             command.CommandText = "SELECT CompanyName FROM customers";
             SqlDataAdapter da = new SqlDataAdapter(command);
             DataTable dt = new DataTable();
             da.Fill(dt);
-            command.Connection.Close();
+            //command.Connection.Close();
             return dt;
         }
     }

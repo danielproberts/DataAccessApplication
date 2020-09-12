@@ -9,3 +9,4 @@ C:\Users\daniel\source\repos\DataAccessApplication\DataAccessApplication\obj\Deb
 C:\Users\daniel\source\repos\DataAccessApplication\DataAccessApplication\obj\Debug\DataAccessApplication.exe
 C:\Users\daniel\source\repos\DataAccessApplication\DataAccessApplication\obj\Debug\DataAccessApplication.pdb
 C:\Users\daniel\source\repos\DataAccessApplication\DataAccessApplication\obj\Debug\DataAccessApplication.LoginForm.resources
+C:\Users\daniel\source\repos\DataAccessApplication\DataAccessApplication\obj\Debug\DataAccessApplication.AppContainer.resources

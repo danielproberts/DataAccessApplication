@@ -9,9 +9,11 @@ using System.Windows.Forms;
 
 namespace DataAccessApplication
 {
-    class BusinessLayer
+    public class BusinessLayer
     {
         public DbAccessLayer dbSession;
+
+        public bool isLoggedIn = false;
 
         public BusinessLayer(string datasource, string database, string username, string password)
         {
@@ -23,8 +25,8 @@ namespace DataAccessApplication
                 {
                     if (dbSession.activeConn != null)
                     {
-                        this.dbSession.activeConn.Close();
-                        MessageBox.Show("Login Successful");
+                        isLoggedIn = true;
+                        Program.connString = connString;
                     }
                 }
                 catch (SqlException ex)
