@@ -57,14 +57,14 @@ namespace DataAccessApplication
             return connString;
         }
 
-        public DataTable getCustomerNames(BusinessLayer busProc)
+        public DataTable getRecords(BusinessLayer busProc, string tableName)
         {
-            return busProc.dbSession.getCustomerNames(busProc);
+            return busProc.dbSession.getRecords(busProc, tableName);
         }
 
-        public int CountRecords(BusinessLayer busProc)
+        public int CountRecords(BusinessLayer busProc, string tableName)
         {
-            return busProc.dbSession.CountRecords(busProc);
+            return busProc.dbSession.CountRecords(busProc, tableName);
         }
     }
 }

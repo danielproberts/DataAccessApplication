@@ -26,23 +26,30 @@ namespace DataAccessApplication
                 Console.WriteLine("Error, " + ex);
             }
         }
-        public int CountRecords(BusinessLayer busProc)
+        public int CountRecords(BusinessLayer busProc, string tableName)
         {
-            /*
-            if (LoginForm.busProc.dbSession.activeConn.State == ConnectionState.Closed)
+            try 
             {
-                LoginForm.busProc.dbSession.activeConn.Open();
+                SqlCommand command = new SqlCommand();
+                SqlConnection connection = new SqlConnection(Program.connString);
+                command.Connection = connection;
+                command.Connection.Open();
+                command.CommandText = "SELECT COUNT(*) FROM " + tableName;
+                int count = (int)command.ExecuteScalar();
+                command.Connection.Close();
+                //busProc.dbSession.activeConn.Close();
+                return count;
             }
-            */
-            SqlCommand command = new SqlCommand();
-            SqlConnection connection = new SqlConnection(Program.connString);
-            command.Connection = connection;
-            command.Connection.Open();
-            command.CommandText = "SELECT COUNT(*) FROM customers";
-            int count = (int)command.ExecuteScalar();
-            command.Connection.Close();
-            //busProc.dbSession.activeConn.Close();
-            return count;
+            catch(SqlException ex)
+            {
+                string message = "You do not have permission to view this table.";
+                string caption = "Access Denied";
+                MessageBoxButtons button = MessageBoxButtons.OK;
+                DialogResult messageBox;
+                messageBox = MessageBox.Show(message, caption, button);
+                Console.WriteLine("Error " + ex);
+                return 0;
+            }
         }
         //{
         /*
@@ -59,17 +66,30 @@ namespace DataAccessApplication
         return count;
         */
         //}
-        public DataTable getCustomerNames(BusinessLayer busProc)
+        public DataTable getRecords(BusinessLayer busProc, string tableName)
         {
-            SqlCommand command = new SqlCommand();
-            SqlConnection connection = new SqlConnection(Program.connString);
-            command.Connection = connection;
-            command.CommandText = "SELECT CompanyName FROM customers";
-            SqlDataAdapter da = new SqlDataAdapter(command);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            //command.Connection.Close();
-            return dt;
+            try
+            {
+                SqlCommand command = new SqlCommand();
+                SqlConnection connection = new SqlConnection(Program.connString);
+                command.Connection = connection;
+                command.CommandText = "SELECT * FROM " + tableName;
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                //command.Connection.Close();
+                return dt;
+            }
+            catch (SqlException ex)
+            {
+                string message = "You do not have permission to view this table.";
+                string caption = "Access Denied";
+                MessageBoxButtons button = MessageBoxButtons.OK;
+                DialogResult messageBox;
+                messageBox = MessageBox.Show(message, caption, button);
+                Console.WriteLine("Error " + ex);
+                return null;
+            }
         }
     }
 }
