@@ -35,6 +35,7 @@ namespace DataAccessApplication
                 if (LoginForm.busProc.isLoggedIn == true)
                 {
                     this.Hide();
+                    //AppContainer.updateConnectionStatus();
                     Form1 mainForm = new Form1();
                     mainForm.MdiParent = this.MdiParent;
                     mainForm.Show();

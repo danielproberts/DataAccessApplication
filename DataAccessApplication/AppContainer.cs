@@ -17,6 +17,14 @@ namespace DataAccessApplication
             InitializeComponent();
         }
 
+        private void AppContainer_MdiChildActivate(Object sender, EventArgs e)
+        {
+            if(Program.connString != null)
+            { 
+                updateConnectionStatus();
+            }
+        }
+
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LoginForm login = new LoginForm();
@@ -29,6 +37,22 @@ namespace DataAccessApplication
             Application.Exit();
         }
 
+        public void updateConnectionStatus()
+        {
+            string stsConnString = Program.connString;
+            string database;
+            string username;
+            //"super exemple of string key : text I want to keep - end of my string";
+
+            int dFrom = stsConnString.IndexOf("Initial Catalog=") + "Initial Catalog=".Length;
+            int dTo = stsConnString.LastIndexOf(";Persist");
+            int uFrom = stsConnString.IndexOf("User ID=") + "User ID=".Length;
+            int uTo = stsConnString.LastIndexOf(";Password=");
+
+            database = stsConnString.Substring(dFrom, dTo - dFrom);
+            username = stsConnString.Substring(uFrom, uTo - uFrom);
+            this.stsConnected.Text = "Connected to " + database + " Database as " + username + ".";
+        }
         
     }
 }

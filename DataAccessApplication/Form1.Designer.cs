@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.lblStatusBar = new System.Windows.Forms.StatusStrip();
-            this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnViewDatabase = new System.Windows.Forms.Button();
             this.btnCountRecords = new System.Windows.Forms.Button();
@@ -38,7 +36,6 @@
             this.boxTableSelect = new System.Windows.Forms.ComboBox();
             this.lblTableSelect = new System.Windows.Forms.Label();
             this.lblNumOfRecords = new System.Windows.Forms.Label();
-            this.lblStatusBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,22 +48,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(2884, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // lblStatusBar
-            // 
-            this.lblStatusBar.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.lblStatusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblStatus});
-            this.lblStatusBar.Location = new System.Drawing.Point(0, 1399);
-            this.lblStatusBar.Name = "lblStatusBar";
-            this.lblStatusBar.Size = new System.Drawing.Size(2884, 22);
-            this.lblStatusBar.TabIndex = 4;
-            this.lblStatusBar.Text = "statusStrip1";
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(0, 12);
             // 
             // dataGridView1
             // 
@@ -149,7 +130,6 @@
             this.Controls.Add(this.boxTableSelect);
             this.Controls.Add(this.lblCount);
             this.Controls.Add(this.btnCountRecords);
-            this.Controls.Add(this.lblStatusBar);
             this.Controls.Add(this.btnViewDatabase);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
@@ -159,8 +139,6 @@
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.lblStatusBar.ResumeLayout(false);
-            this.lblStatusBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -170,8 +148,6 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.StatusStrip lblStatusBar;
-        private System.Windows.Forms.ToolStripStatusLabel lblStatus;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnViewDatabase;
         private System.Windows.Forms.Button btnCountRecords;
