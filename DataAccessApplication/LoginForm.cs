@@ -34,7 +34,7 @@ namespace DataAccessApplication
                 if (LoginForm.busProc.isLoggedIn == true)
                 {
                     this.Hide();
-                    Form1 mainForm = new Form1();
+                    session mainForm = new session();
                     mainForm.MdiParent = this.MdiParent;
                     mainForm.Show();
                 }

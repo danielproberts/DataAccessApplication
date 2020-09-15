@@ -11,15 +11,14 @@ using System.Data.SqlClient;
 
 namespace DataAccessApplication
 {
-    public partial class Form1 : Form
+    public partial class session : Form
     {
-        //private BusinessLayer busProc = new BusinessLayer();
-        public Form1()
+        public session()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void SessionWindow_Load(object sender, EventArgs e)
         {
             boxTableSelect.SelectedIndex = 0;
         }

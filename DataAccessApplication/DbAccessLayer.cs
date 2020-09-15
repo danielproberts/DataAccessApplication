@@ -37,13 +37,12 @@ namespace DataAccessApplication
                 command.CommandText = "SELECT COUNT(*) FROM " + tableName;
                 int count = (int)command.ExecuteScalar();
                 command.Connection.Close();
-                //busProc.dbSession.activeConn.Close();
                 return count;
             }
             catch(SqlException ex)
             {
-                string message = "You do not have permission to view this table.";
                 string caption = "Access Denied";
+                string message = "You do not have permission to view this table.";
                 MessageBoxButtons button = MessageBoxButtons.OK;
                 DialogResult messageBox;
                 messageBox = MessageBox.Show(message, caption, button);
@@ -51,21 +50,7 @@ namespace DataAccessApplication
                 return 0;
             }
         }
-        //{
-        /*
-        if (busProc.dbSession.activeConn.State == ConnectionState.Closed)
-        {
-            busProc.dbSession.activeConn.Open();
-        }
-        SqlCommand command = new SqlCommand();
-        command.Connection.ConnectionString = LoginForm.busProc.dbSession.activeConn.ConnectionString;
-        //command.Connection.Open();
-        command.CommandText = "SELECT COUNT(*) FROM customers";
-        int count = (int)command.ExecuteScalar();
-        //command.Connection.Close();
-        return count;
-        */
-        //}
+        
         public DataTable getRecords(BusinessLayer busProc, string tableName)
         {
             try
@@ -77,13 +62,12 @@ namespace DataAccessApplication
                 SqlDataAdapter da = new SqlDataAdapter(command);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
-                //command.Connection.Close();
                 return dt;
             }
             catch (SqlException ex)
             {
-                string message = "You do not have permission to view this table.";
                 string caption = "Access Denied";
+                string message = "You do not have permission to view this table.";
                 MessageBoxButtons button = MessageBoxButtons.OK;
                 DialogResult messageBox;
                 messageBox = MessageBox.Show(message, caption, button);

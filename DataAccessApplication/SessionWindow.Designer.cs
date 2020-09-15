@@ -1,6 +1,6 @@
 ﻿namespace DataAccessApplication
 {
-    partial class Form1
+    partial class session
     {
         /// <summary>
         /// Required designer variable.
@@ -119,7 +119,7 @@
             this.lblNumOfRecords.TabIndex = 11;
             this.lblNumOfRecords.Text = "Number of Records:";
             // 
-            // Form1
+            // session
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -134,11 +134,11 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "session";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Session";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.SessionWindow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

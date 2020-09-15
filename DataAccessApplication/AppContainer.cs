@@ -42,7 +42,6 @@ namespace DataAccessApplication
             string stsConnString = Program.connString;
             string database;
             string username;
-            //"super exemple of string key : text I want to keep - end of my string";
 
             int dFrom = stsConnString.IndexOf("Initial Catalog=") + "Initial Catalog=".Length;
             int dTo = stsConnString.LastIndexOf(";Persist");
@@ -53,6 +52,5 @@ namespace DataAccessApplication
             username = stsConnString.Substring(uFrom, uTo - uFrom);
             this.stsConnected.Text = "Connected to " + database + " Database as " + username + ".";
         }
-        
     }
 }

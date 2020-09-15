@@ -37,13 +37,6 @@ namespace DataAccessApplication
             }
         }
 
-        /*
-        public BusinessLayer()
-        {
-            this.dbSession = ConnectToDb();
-            this.dbSession.activeConn.Close();
-        }
-        */
         private DbAccessLayer ConnectToDb(string connString)
         {
             DbAccessLayer dbSession = new DbAccessLayer(connString);
