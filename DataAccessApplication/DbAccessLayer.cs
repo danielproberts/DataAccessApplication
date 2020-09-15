@@ -9,46 +9,87 @@ using System.Data;
 
 namespace DataAccessApplication
 {
-    class DbAccessLayer
+    public class DbAccessLayer
     {
         public SqlConnection activeConn;
         public DbAccessLayer(string connString)
         {
+            SqlConnection connection = new SqlConnection(connString);
             try
             {
-                SqlConnection connection = new SqlConnection(connString);
                 connection.Open();
                 this.activeConn = connection;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error, " + ex);
+                MessageBox.Show("Invalid Username or Password");
+                Console.WriteLine("Error, " + ex);
             }
         }
-        public int CountRecords(BusinessLayer busProc)
+        public int CountRecords(BusinessLayer busProc, string tableName)
         {
-            if (busProc.dbSession.activeConn.State == ConnectionState.Closed)
+            try 
             {
-                busProc.dbSession.activeConn.Open();
+                SqlCommand command = new SqlCommand();
+                SqlConnection connection = new SqlConnection(Program.connString);
+                command.Connection = connection;
+                command.Connection.Open();
+                command.CommandText = "SELECT COUNT(*) FROM " + tableName;
+                int count = (int)command.ExecuteScalar();
+                command.Connection.Close();
+                //busProc.dbSession.activeConn.Close();
+                return count;
             }
-            SqlCommand command = new SqlCommand();
-            command.Connection = busProc.dbSession.activeConn;
-            command.CommandText = "SELECT COUNT(*) FROM customers";
-            int count = (int)command.ExecuteScalar();
-            busProc.dbSession.activeConn.Close();
-            return count;
+            catch(SqlException ex)
+            {
+                string message = "You do not have permission to view this table.";
+                string caption = "Access Denied";
+                MessageBoxButtons button = MessageBoxButtons.OK;
+                DialogResult messageBox;
+                messageBox = MessageBox.Show(message, caption, button);
+                Console.WriteLine("Error " + ex);
+                return 0;
+            }
         }
-        public DataTable getCustomerNames(BusinessLayer busProc)
+        //{
+        /*
+        if (busProc.dbSession.activeConn.State == ConnectionState.Closed)
         {
-            SqlCommand command = new SqlCommand();
-            command.Connection = busProc.dbSession.activeConn;
-            command.Connection.Open();
-            command.CommandText = "SELECT CompanyName FROM customers";
-            SqlDataAdapter da = new SqlDataAdapter(command);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            command.Connection.Close();
-            return dt;
+            busProc.dbSession.activeConn.Open();
+        }
+        SqlCommand command = new SqlCommand();
+        command.Connection.ConnectionString = LoginForm.busProc.dbSession.activeConn.ConnectionString;
+        //command.Connection.Open();
+        command.CommandText = "SELECT COUNT(*) FROM customers";
+        int count = (int)command.ExecuteScalar();
+        //command.Connection.Close();
+        return count;
+        */
+        //}
+        public DataTable getRecords(BusinessLayer busProc, string tableName)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand();
+                SqlConnection connection = new SqlConnection(Program.connString);
+                command.Connection = connection;
+                command.CommandText = "SELECT * FROM " + tableName;
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                //command.Connection.Close();
+                return dt;
+            }
+            catch (SqlException ex)
+            {
+                string message = "You do not have permission to view this table.";
+                string caption = "Access Denied";
+                MessageBoxButtons button = MessageBoxButtons.OK;
+                DialogResult messageBox;
+                messageBox = MessageBox.Show(message, caption, button);
+                Console.WriteLine("Error " + ex);
+                return null;
+            }
         }
     }
 }
