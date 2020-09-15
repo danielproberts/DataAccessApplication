@@ -83,21 +83,21 @@
             this.boxServerList.FormattingEnabled = true;
             this.boxServerList.Items.AddRange(new object[] {
             "DANIELROBERFA92\\SQLEXPRESS"});
-            this.boxServerList.Location = new System.Drawing.Point(354, 270);
+            this.boxServerList.Location = new System.Drawing.Point(354, 260);
             this.boxServerList.Name = "boxServerList";
             this.boxServerList.Size = new System.Drawing.Size(256, 33);
             this.boxServerList.TabIndex = 7;
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(354, 100);
+            this.txtUserName.Location = new System.Drawing.Point(354, 94);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(256, 31);
             this.txtUserName.TabIndex = 5;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(354, 183);
+            this.txtPassword.Location = new System.Drawing.Point(354, 177);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '•';
             this.txtPassword.Size = new System.Drawing.Size(256, 31);
@@ -123,11 +123,12 @@
             // 
             // boxDatabaseList
             // 
+            this.boxDatabaseList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boxDatabaseList.FormattingEnabled = true;
             this.boxDatabaseList.Items.AddRange(new object[] {
             "Northwind",
             "Other..."});
-            this.boxDatabaseList.Location = new System.Drawing.Point(354, 352);
+            this.boxDatabaseList.Location = new System.Drawing.Point(354, 342);
             this.boxDatabaseList.Name = "boxDatabaseList";
             this.boxDatabaseList.Size = new System.Drawing.Size(256, 33);
             this.boxDatabaseList.TabIndex = 8;

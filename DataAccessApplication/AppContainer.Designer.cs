@@ -56,7 +56,7 @@
             this.loginToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(72, 44);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(72, 36);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // loginToolStripMenuItem
@@ -102,7 +102,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "AppContainer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "appWindow";
+            this.Text = "Data Access Application";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.MdiChildActivate += new System.EventHandler(this.AppContainer_MdiChildActivate);
             this.menuStrip1.ResumeLayout(false);

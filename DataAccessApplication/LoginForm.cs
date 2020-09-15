@@ -19,6 +19,7 @@ namespace DataAccessApplication
             InitializeComponent();
             boxServerList.SelectedIndex = 0;
             boxDatabaseList.SelectedIndex = 0;
+            txtUserName.Select();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -30,12 +31,9 @@ namespace DataAccessApplication
                 string password = txtPassword.Text;
                 LoginForm.busProc = new BusinessLayer(datasource, database, username, password);
                 Program.connString = busProc.generateConnString(datasource, database, username, password);
-                //Program.connString = LoginForm.busProc.dbSession.activeConn.ConnectionString;
-                //LoginForm.busProc.dbSession.activeConn.ConnectionString = LoginForm.busProc.dbSession.activeConn.ConnectionString;
                 if (LoginForm.busProc.isLoggedIn == true)
                 {
                     this.Hide();
-                    //AppContainer.updateConnectionStatus();
                     Form1 mainForm = new Form1();
                     mainForm.MdiParent = this.MdiParent;
                     mainForm.Show();
