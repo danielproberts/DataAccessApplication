@@ -18,7 +18,7 @@ namespace DataAccessApplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            AppContainer appWindow = new AppContainer();
+            Session appWindow = new Session();
             Application.Run(appWindow);
         }
     }

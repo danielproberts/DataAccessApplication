@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DataAccessApplication
 {
-    public partial class AppContainer : Form
+    public partial class Session : Form
     {
-        public AppContainer()
+        public Session()
         {
             InitializeComponent();
         }

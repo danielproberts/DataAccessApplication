@@ -1,6 +1,6 @@
 ﻿namespace DataAccessApplication
 {
-    partial class AppContainer
+    partial class Session
     {
         /// <summary>
         /// Required designer variable.
@@ -91,7 +91,7 @@
             this.stsConnected.Text = "Not Connected";
             this.stsConnected.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // AppContainer
+            // Session
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -100,7 +100,7 @@
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "AppContainer";
+            this.Name = "Session";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Data Access Application";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
