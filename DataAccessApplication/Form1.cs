@@ -21,6 +21,19 @@ namespace DataAccessApplication
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            int count = boxTableSelect.Items.Count;
+            for(int i = 0; i <= count; count--)
+            {
+                boxTableSelect.SelectedIndex = i;
+                if (LoginForm.busProc.CountRecords(LoginForm.busProc, boxTableSelect.SelectedItem.ToString()) == 0)
+                {
+                    boxTableSelect.Items.RemoveAt(i);
+                }
+                else
+                {
+                    i++;
+                }
+            }
             boxTableSelect.SelectedIndex = 0;
         }
 

@@ -37,17 +37,10 @@ namespace DataAccessApplication
                 command.CommandText = "SELECT COUNT(*) FROM " + tableName;
                 int count = (int)command.ExecuteScalar();
                 command.Connection.Close();
-                //busProc.dbSession.activeConn.Close();
                 return count;
             }
             catch(SqlException ex)
             {
-                string message = "You do not have permission to view this table.";
-                string caption = "Access Denied";
-                MessageBoxButtons button = MessageBoxButtons.OK;
-                DialogResult messageBox;
-                messageBox = MessageBox.Show(message, caption, button);
-                Console.WriteLine("Error " + ex);
                 return 0;
             }
         }
