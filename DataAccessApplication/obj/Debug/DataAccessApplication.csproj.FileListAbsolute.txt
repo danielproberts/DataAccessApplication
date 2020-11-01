@@ -10,3 +10,7 @@ C:\Users\daniel\source\repos\DataAccessApplication\DataAccessApplication\obj\Deb
 C:\Users\daniel\source\repos\DataAccessApplication\DataAccessApplication\obj\Debug\DataAccessApplication.pdb
 C:\Users\daniel\source\repos\DataAccessApplication\DataAccessApplication\obj\Debug\DataAccessApplication.LoginForm.resources
 C:\Users\daniel\source\repos\DataAccessApplication\DataAccessApplication\obj\Debug\DataAccessApplication.Session.resources
+C:\Users\daniel\source\repos\DataAccessApplication\DataAccessApplication\bin\Debug\DataAccessApplication.exe.manifest
+C:\Users\daniel\source\repos\DataAccessApplication\DataAccessApplication\bin\Debug\DataAccessApplication.application
+C:\Users\daniel\source\repos\DataAccessApplication\DataAccessApplication\obj\Debug\DataAccessApplication.exe.manifest
+C:\Users\daniel\source\repos\DataAccessApplication\DataAccessApplication\obj\Debug\DataAccessApplication.application
